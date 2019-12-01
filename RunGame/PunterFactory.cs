@@ -7,19 +7,28 @@ using System.Windows.Forms;
 
 namespace RunGame
 {
-    public static class PunterFactory
+    public class PunterFactory
     {
-        public static PunterAbstract CreatePunter(String name)
+       public PunterAbstract CreatePunter(String name)
         {
             PunterAbstract punter = null;
 
             if (name == "Robert")
+            {
                 punter = new Robert(50, false);
+                return punter;
+            }
             else if (name == "Samuel")
-                return new Samuel(50, false);
+            {
+                punter = new Samuel(50, false);
+                return punter;
+            }
             else if (name == "George")
-                return new George(50, false);
-            return punter;
+            {
+                punter = new George(50, false);
+                return punter;
+            }
+            return null;
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RunGame {
+namespace HorseRace {
     using System;
     
     
@@ -63,9 +63,9 @@ namespace RunGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap jerry {
+        internal static System.Drawing.Bitmap Jerry {
             get {
-                object obj = ResourceManager.GetObject("jerry", resourceCulture);
+                object obj = ResourceManager.GetObject("Jerry", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace RunGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rabbit {
+        internal static System.Drawing.Bitmap Rabbit {
             get {
-                object obj = ResourceManager.GetObject("rabbit", resourceCulture);
+                object obj = ResourceManager.GetObject("Rabbit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace RunGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tom {
+        internal static System.Drawing.Bitmap Tom {
             get {
-                object obj = ResourceManager.GetObject("tom", resourceCulture);
+                object obj = ResourceManager.GetObject("Tom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace RunGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap turtle {
+        internal static System.Drawing.Bitmap Turtle {
             get {
-                object obj = ResourceManager.GetObject("turtle", resourceCulture);
+                object obj = ResourceManager.GetObject("Turtle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

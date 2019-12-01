@@ -14,7 +14,7 @@ namespace RunGame
     {
         
 
-        PunterAbstract[] punters = new PunterAbstract[3];
+        PunterAbstract[] punters = new PunterAbstract[3];//setting an object for abstract
         
         
         public Form1()
@@ -25,16 +25,17 @@ namespace RunGame
 
         public void SetUp()
         {
-            punters[0] = PunterFactory.CreatePunter("Robert");
-            punters[1] = PunterFactory.CreatePunter("Samuel");
-            punters[2] = PunterFactory.CreatePunter("George");
+            PunterFactory factory = new PunterFactory();
+            punters[0] = factory.CreatePunter("Robert");
+            punters[1] = factory.CreatePunter("Samuel");
+            punters[2] = factory.CreatePunter("George");
         }
 
         private void BetBtn_Click(object sender, EventArgs e)
         {
             Contestant temp = new Contestant();
             int index = Convert.ToInt32(ContestantName.Value);
-
+            //contestants  and their indexes
             if (index == 0)
                 temp.CreateContestant(Rabbit, "Rabbit");
             else if (index == 1)
@@ -46,30 +47,30 @@ namespace RunGame
             else
                 MessageBox.Show("Error!, could not create the contestant");
 
-            int bet = Convert.ToInt32(BetAmount.Value);
+            int bet = Convert.ToInt32(BetAmount.Value);// setting bet value
 
-            if (RobertRadBtn.Checked)
+            if (RobertRadBtn.Checked)//setting things for robert as a punter to bet in the match
             {
                 punters[0].contestant = temp;
                 punters[0].Bet = bet;
                 RobertSituation.Text = punters[0].Name + " bet " + punters[0].Bet + " on contestant " + temp.Name;
-                //remove this line later!!! depends on you!
-                textBox1.Text = punters[0].Cash + "";
+                
             }
             else if (SamuelRadBtn.Checked)
             {
                 punters[1].contestant = temp;
                 punters[1].Bet = bet;
                 SamuelSituation.Text = punters[1].Name + " bet " + punters[1].Bet + " on contestant " + temp.Name;
-                textBox1.Text = punters[1].Cash + "";
+               
             }
             else if (GeorgeRadBtn.Checked)
             {
                 punters[2].contestant = temp;
                 punters[2].Bet = bet;
                 GeorgeSituation.Text = punters[2].Name + " bet " + punters[2].Bet + " on contestant " + temp.Name;
-                textBox1.Text = punters[2].Cash + "";
+                
             }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -80,11 +81,12 @@ namespace RunGame
 
         private void StartRace_Click(object sender, EventArgs e)
         {
+            int startPosition = Rabbit.Left;
             Contestant[] contestants = new Contestant[4];
-            contestants[0] = new Contestant(Rabbit, "Rabbit");
-            contestants[1] = new Contestant(Turtle, "Turtle");
-            contestants[2] = new Contestant(Tom, "Tom");
-            contestants[3] = new Contestant(Jerry, "Jerry");
+            contestants[0] = new Contestant(Rabbit, "Rabbit", startPosition);
+            contestants[1] = new Contestant(Turtle, "Turtle", startPosition);
+            contestants[2] = new Contestant(Tom, "Tom", startPosition);
+            contestants[3] = new Contestant(Jerry, "Jerry", startPosition);
 
             Point p0 = new Point(contestants[0].Picture.Location.X, contestants[0].Picture.Location.Y);
             Point p1 = new Point(contestants[1].Picture.Location.X, contestants[1].Picture.Location.Y);
@@ -115,7 +117,7 @@ namespace RunGame
 
             int max = contestants[0].Picture.Location.X;
             int index = 0;
-            for(int i = 1; i < 4; i++)
+            for(int i = 0; i < contestants.Length; i++)
             {
                 if(contestants[i].Picture.Location.X > max)
                 {
@@ -124,29 +126,31 @@ namespace RunGame
                 }
             }
 
-            MessageBox.Show(index + "");
-
-            for(int j = 0; j < 3; j++)
+            for (int j = 0; j < 3; j++)//setting things for bet amount of punters
             {
-                if(punters[j].contestant.Name == contestants[index].Name)
+                if (punters[j].contestant.Name == contestants[index].Name)//creating links between the contestant and punters who win the race
                 {
-                    punters[j].Cash = punters[j].Cash + punters[j].Bet;
+                    punters[j].Cash = punters[j].Cash + punters[j].Bet;// bet amount is added to wining con
                 }
                 else
                 {
-                    punters[j].Cash -= punters[j].Bet; 
+                    punters[j].Cash -= punters[j].Bet;
                 }
             }
-       
-        }
-        public void ResetContestantPositions()
-        {
-            for (int i = 0; i < 4; i++)
+
+            // it shows the winner
+            MessageBox.Show(index + " has won the match");
+
+            for (int c = 0; c < contestants.Length; c++)
             {
-                
+                contestants[c].MoveToStart();
             }
+            RobertCash.Text = punters[0].Cash + "";
+            SamuelCash.Text = punters[1].Cash + "";
+            GeorgeCash.Text = punters[2].Cash + "";
+
         }
-        //coding for a reset bets
+        
         public void ResetBets()
         {
             for (int i = 0; i < 3; i++)
@@ -162,7 +166,39 @@ namespace RunGame
             Environment.Exit(0);
         }
 
-     
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RobertRadBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            BetAmount.Maximum = punters[0].Cash;
+            if (punters[0].Cash == 0)
+            {
+                RobertRadBtn.Enabled = false;
+            }
+        }
+
+        private void SamuelRadBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            BetAmount.Maximum = punters[1].Cash;
+            if (punters[1].Cash == 0)
+            {
+                SamuelRadBtn.Enabled = false;
+            }
+        }
+
+        private void GeorgeRadBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            BetAmount.Maximum = punters[2].Cash;
+            if (punters[2].Cash == 0)
+            {
+                RobertRadBtn.Enabled = false;
+            }
+        }
+
+        
     }
  
 }

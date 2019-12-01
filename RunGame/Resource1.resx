@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="jerry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Jerry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\jerry.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rabbit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Rabbit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\79937213-cute-cartoon-rabbit-running.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RaceTrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\istockphoto-120921773-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Tom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="turtle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Turtle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\turtle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
