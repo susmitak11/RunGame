@@ -9,8 +9,11 @@ namespace RunGame
 {
     public class PunterFactory
     {//it is an abstract class to define punter and the money they have
-       public PunterAbstract CreatePunter(String name)
+        static int Count = 0;
+       public static PunterAbstract CreatePunter(String name)
         {
+            Count++;
+
             PunterAbstract punter = null;
 
             if (name == "Robert")
@@ -29,6 +32,11 @@ namespace RunGame
                 return punter;
             }
             return null;
+        }
+
+        public static int ReturnCount()
+        {
+            return Count;
         }
     }
 }

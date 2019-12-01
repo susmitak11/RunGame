@@ -13,8 +13,11 @@ namespace RunGame
         public string Name { get; set; }//setting name
 
         public int startPosition { get; set; }// move to start postion
+        public Contestant()
+        {
+            
+        }
 
-     
         public Contestant(PictureBox picture, string name, int startPos)
         {
             Picture = picture;

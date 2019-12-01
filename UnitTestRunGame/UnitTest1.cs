@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RunGame;
 
 namespace UnitTestRunGame
 {
@@ -8,19 +9,24 @@ namespace UnitTestRunGame
     public class UnitTest1
     {
         [TestMethod]
-        public void TestRandom()
-        {//testing if the random numbers is within the limit
-            Random rand = new Random();
-            int Result = rand.Next(10, 20);
-            Assert.IsTrue(Result >= 10 && Result <= 20);
+        public void TestPunterCreation()
+        {
+            //testing the Factory not creating the instances that are not defined
+            //if you don't give proper name based on the defined classes, no instance will be created
+            RunGame.PunterAbstract result = PunterFactory.CreatePunter("John");
+            Assert.AreEqual(null, result);
         }
 
         [TestMethod]
-        public void TestLargeValue()
-        {//testing the random number is not greater than the value provided
-            Random rand = new Random();
-            int Result = rand.Next(10, 20);
-            Assert.IsFalse(Result >20);
+        public void TestFactoryCreation()
+        {
+            //testing if Factory class is creating proper instances
+            PunterAbstract punter1 = PunterFactory.CreatePunter("test1");
+            PunterAbstract punter2 = PunterFactory.CreatePunter("test2");
+
+            //testing the number of created instances
+            int result = PunterFactory.ReturnCount();
+            Assert.AreEqual(2, result);
         }
 
     }

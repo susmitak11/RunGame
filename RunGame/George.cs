@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RunGame
 {
-    class George : PunterAbstract
+    public class George : PunterAbstract
     {//taking the things from abstract class for george
 
         public George(int cash, bool outOfMoney)
@@ -15,6 +15,12 @@ namespace RunGame
             Cash = cash;
             OutOfMoney = outOfMoney;
         }
+
+        public override string Name { get; set; }
+        public override int Bet { get; set; }
+        public override int Cash { get; set; }
+        public override bool OutOfMoney { get; set; }
+        public override Contestant contestant { get; set; }
 
     }
 }

@@ -10,12 +10,14 @@ namespace RunGame
 {//it is abstract class providing different functionality to punters
     public abstract class PunterAbstract
     {
-        public string Name { get; set; }
-        public int Cash { get; set; }
-        public int Bet { get; set; }
-        public bool OutOfMoney { get; set; }
-        public Contestant contestant { get; set; }
-
+        public abstract string Name { get; set; }
+        public abstract int Cash { get; set; }
+        public abstract int Bet { get; set; }
+        public abstract bool OutOfMoney { get; set; }
+        public abstract Contestant contestant { get; set; }
+               
     }
+
+    
 }
 

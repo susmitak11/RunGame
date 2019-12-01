@@ -25,10 +25,10 @@ namespace RunGame
 
         public void SetUp()
         {
-            PunterFactory factory = new PunterFactory();
-            punters[0] = factory.CreatePunter("Robert");//setting punters for the game
-            punters[1] = factory.CreatePunter("Samuel");
-            punters[2] = factory.CreatePunter("George");
+
+            punters[0] = PunterFactory.CreatePunter("Robert");//setting punters for the game
+            punters[1] = PunterFactory.CreatePunter("Samuel");
+            punters[2] = PunterFactory.CreatePunter("George");
         }
 
         private void BetBtn_Click(object sender, EventArgs e)
