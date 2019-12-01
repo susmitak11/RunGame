@@ -290,6 +290,7 @@
             this.RobertCash.Name = "RobertCash";
             this.RobertCash.Size = new System.Drawing.Size(100, 20);
             this.RobertCash.TabIndex = 21;
+            this.RobertCash.Text = "$50";
             // 
             // SamuelCash
             // 
@@ -298,6 +299,7 @@
             this.SamuelCash.Name = "SamuelCash";
             this.SamuelCash.Size = new System.Drawing.Size(100, 20);
             this.SamuelCash.TabIndex = 22;
+            this.SamuelCash.Text = "$50";
             // 
             // GeorgeCash
             // 
@@ -306,6 +308,7 @@
             this.GeorgeCash.Name = "GeorgeCash";
             this.GeorgeCash.Size = new System.Drawing.Size(100, 20);
             this.GeorgeCash.TabIndex = 23;
+            this.GeorgeCash.Text = "$50";
             // 
             // label4
             // 

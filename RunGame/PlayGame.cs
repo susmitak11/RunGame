@@ -53,21 +53,21 @@ namespace RunGame
             {
                 punters[0].contestant = temp;
                 punters[0].Bet = bet;
-                RobertSituation.Text = punters[0].Name + " bet " + punters[0].Bet + " on contestant " + temp.Name;
+                RobertSituation.Text = punters[0].Name + " bet $" + punters[0].Bet + " on contestant " + temp.Name;
                 
             }
             else if (SamuelRadBtn.Checked)//setting things for samuel as a punter to bet in the match
             {
                 punters[1].contestant = temp;
                 punters[1].Bet = bet;
-                SamuelSituation.Text = punters[1].Name + " bet " + punters[1].Bet + " on contestant " + temp.Name;
+                SamuelSituation.Text = punters[1].Name + " bet $" + punters[1].Bet + " on contestant " + temp.Name;
                
             }
             else if (GeorgeRadBtn.Checked)//setting things for george as a punter to bet in the match
             {
                 punters[2].contestant = temp;
                 punters[2].Bet = bet;
-                GeorgeSituation.Text = punters[2].Name + " bet " + punters[2].Bet + " on contestant " + temp.Name;
+                GeorgeSituation.Text = punters[2].Name + " bet  $" + punters[2].Bet + " on contestant " + temp.Name;
                 
             }
             
@@ -130,10 +130,11 @@ namespace RunGame
             {
                 if (punters[j].contestant.Name == contestants[index].Name)//creating links between the contestant and punters who win the race
                 {
-                    punters[j].Cash = punters[j].Cash + punters[j].Bet;// bet amount is added to wining con
+                    punters[j].Cash = punters[j].Cash + punters[j].Bet;// bet amount is added to wining contestant
                 }
                 else
                 {
+                    //decrese the amount accorging to their bet
                     punters[j].Cash -= punters[j].Bet;
                 }
             }
@@ -145,20 +146,56 @@ namespace RunGame
             {
                 contestants[c].MoveToStart();
             }
-            RobertCash.Text = punters[0].Cash + "";//will show thw cash money taken by the punter
-            SamuelCash.Text = punters[1].Cash + "";
-            GeorgeCash.Text = punters[2].Cash + "";
+
+            //will show thw cash money taken by the punter
+            RobertCash.Text = "$" + punters[0].Cash;
+            SamuelCash.Text = "$" + punters[1].Cash;
+            GeorgeCash.Text = "$" + punters[2].Cash;
+
+            //reseting the game
+            ResetBets();
+
+            //disabling if not enough money
+            if (punters[0].Cash == 0)
+            {
+                RobertRadBtn.Enabled = false;
+                RobertSituation.Text = "Robert is out of money";
+            }
+
+            if (punters[1].Cash == 0)
+            {
+                SamuelRadBtn.Enabled = false;
+                SamuelSituation.Text = "Samuel is out of money";
+            }
+
+            if (punters[2].Cash == 0)
+            {
+                GeorgeRadBtn.Enabled = false;
+                GeorgeSituation.Text = "George is out of money";
+            }
+
+
+
+            if(!RobertRadBtn.Enabled && !SamuelRadBtn.Enabled && !GeorgeRadBtn.Enabled)
+            {
+                MessageBox.Show("Game finished");
+            }
 
         }
         // it is for resetting the game and start from the beginning
         public void ResetBets()
         {
+            //reseting the bet amount
             for (int i = 0; i < 3; i++)
-            {
-                label1.Text = "Robert hasn't placed any bets.";
-                label2.Text = "Samuel hasn't placed any bets.";
-                label3.Text = "George hasn't placed any bets.";
-            }
+                punters[i].Bet = 0;
+
+            RobertSituation.Text = "Robert haven't bet yet";
+            GeorgeSituation.Text = "George haven't bet yet";
+            SamuelSituation.Text = "Samuel haven't bet yet";
+
+            RobertRadBtn.Checked = false;
+            SamuelRadBtn.Checked = false;
+            GeorgeRadBtn.Checked = false;
         }
         //to exit the game
         private void Exit_Click(object sender, EventArgs e)
@@ -169,28 +206,19 @@ namespace RunGame
         private void RobertRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[0].Cash;
-            if (punters[0].Cash == 0)
-            {
-                RobertRadBtn.Enabled = false;
-            }
+            
         }
         //disabling the radio button when samuel is out of money
         private void SamuelRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[1].Cash;
-            if (punters[1].Cash == 0)
-            {
-                SamuelRadBtn.Enabled = false;
-            }
+            
         }
         //disabling the radio button when george is out of money
         private void GeorgeRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[2].Cash;
-            if (punters[2].Cash == 0)
-            {
-                RobertRadBtn.Enabled = false;
-            }
+            
         }
 
         
