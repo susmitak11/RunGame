@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace RunGame
 {
     public class PunterFactory
-    {
+    {//it is an abstract class to define punter and the money they have
        public PunterAbstract CreatePunter(String name)
         {
             PunterAbstract punter = null;

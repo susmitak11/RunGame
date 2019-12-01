@@ -26,7 +26,7 @@ namespace RunGame
         public void SetUp()
         {
             PunterFactory factory = new PunterFactory();
-            punters[0] = factory.CreatePunter("Robert");
+            punters[0] = factory.CreatePunter("Robert");//setting punters for the game
             punters[1] = factory.CreatePunter("Samuel");
             punters[2] = factory.CreatePunter("George");
         }
@@ -56,14 +56,14 @@ namespace RunGame
                 RobertSituation.Text = punters[0].Name + " bet " + punters[0].Bet + " on contestant " + temp.Name;
                 
             }
-            else if (SamuelRadBtn.Checked)
+            else if (SamuelRadBtn.Checked)//setting things for samuel as a punter to bet in the match
             {
                 punters[1].contestant = temp;
                 punters[1].Bet = bet;
                 SamuelSituation.Text = punters[1].Name + " bet " + punters[1].Bet + " on contestant " + temp.Name;
                
             }
-            else if (GeorgeRadBtn.Checked)
+            else if (GeorgeRadBtn.Checked)//setting things for george as a punter to bet in the match
             {
                 punters[2].contestant = temp;
                 punters[2].Bet = bet;
@@ -88,16 +88,16 @@ namespace RunGame
             contestants[2] = new Contestant(Tom, "Tom", startPosition);
             contestants[3] = new Contestant(Jerry, "Jerry", startPosition);
 
-            Point p0 = new Point(contestants[0].Picture.Location.X, contestants[0].Picture.Location.Y);
-            Point p1 = new Point(contestants[1].Picture.Location.X, contestants[1].Picture.Location.Y);
-            Point p2 = new Point(contestants[2].Picture.Location.X, contestants[2].Picture.Location.Y);
-            Point p3 = new Point(contestants[3].Picture.Location.X, contestants[3].Picture.Location.Y);
+            Point p0 = new Point(contestants[0].Picture.Location.X, contestants[0].Picture.Location.Y);//point of location for Rabbit
+            Point p1 = new Point(contestants[1].Picture.Location.X, contestants[1].Picture.Location.Y);//point of location for Turtle
+            Point p2 = new Point(contestants[2].Picture.Location.X, contestants[2].Picture.Location.Y);//point of location for Tom
+            Point p3 = new Point(contestants[3].Picture.Location.X, contestants[3].Picture.Location.Y);//point of location for Jerry
 
             while (contestants[0].Picture.Location.X < 700 || contestants[1].Picture.Location.X < 700 || contestants[2].Picture.Location.X < 700 || contestants[3].Picture.Location.X < 700 )
                
             {
-                Random rnd = new Random();
-
+                Random rnd = new Random();//creating random number
+                //creating the random number limit for the contestant to run 
                 int random = rnd.Next(10, 20);
                 p0.X += random;
                 contestants[0].Picture.Location = p0;
@@ -114,11 +114,11 @@ namespace RunGame
                 p3.X += random;
                 contestants[3].Picture.Location = p3;
             }
-
+            //maximum location for the contestant to run
             int max = contestants[0].Picture.Location.X;
             int index = 0;
             for(int i = 0; i < contestants.Length; i++)
-            {
+            {//winner of the game
                 if(contestants[i].Picture.Location.X > max)
                 {
                     max = contestants[i].Picture.Location.X;
@@ -140,17 +140,17 @@ namespace RunGame
 
             // it shows the winner
             MessageBox.Show(index + " has won the match");
-
+            // it will resume the game from starting
             for (int c = 0; c < contestants.Length; c++)
             {
                 contestants[c].MoveToStart();
             }
-            RobertCash.Text = punters[0].Cash + "";
+            RobertCash.Text = punters[0].Cash + "";//will show thw cash money taken by the punter
             SamuelCash.Text = punters[1].Cash + "";
             GeorgeCash.Text = punters[2].Cash + "";
 
         }
-        
+        // it is for resetting the game and start from the beginning
         public void ResetBets()
         {
             for (int i = 0; i < 3; i++)
@@ -160,17 +160,12 @@ namespace RunGame
                 label3.Text = "George hasn't placed any bets.";
             }
         }
-
+        //to exit the game
         private void Exit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //disabling the radio button when robert is out of money
         private void RobertRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[0].Cash;
@@ -179,7 +174,7 @@ namespace RunGame
                 RobertRadBtn.Enabled = false;
             }
         }
-
+        //disabling the radio button when samuel is out of money
         private void SamuelRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[1].Cash;
@@ -188,7 +183,7 @@ namespace RunGame
                 SamuelRadBtn.Enabled = false;
             }
         }
-
+        //disabling the radio button when george is out of money
         private void GeorgeRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             BetAmount.Maximum = punters[2].Cash;

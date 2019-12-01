@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 
 namespace RunGame
-{
+{//it is abstract class providing different functionality to punters
     public abstract class PunterAbstract
     {
         public string Name { get; set; }

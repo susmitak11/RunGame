@@ -7,18 +7,14 @@ using System.Windows.Forms;
 
 namespace RunGame
 {
-    public class Contestant
+    public class Contestant// it is the contestant class
     {
-        public PictureBox Picture { get; set; }
-        public string Name { get; set; }
+        public PictureBox Picture { get; set; }// to view picture of contestant
+        public string Name { get; set; }//setting name
 
-        public int startPosition { get; set; }
+        public int startPosition { get; set; }// move to start postion
 
-        public Contestant()
-        {
-
-        }
-
+     
         public Contestant(PictureBox picture, string name, int startPos)
         {
             Picture = picture;
@@ -31,7 +27,7 @@ namespace RunGame
             Picture = picture;
             Name = name;
         }
-
+        //resetting the contestant
         public void MoveToStart()
         {
             Picture.Left = startPosition;

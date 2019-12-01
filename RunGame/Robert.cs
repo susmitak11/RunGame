@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace RunGame
 {
     class Robert : PunterAbstract
-    {
-
-        public Robert(int cash, bool outOfMoney)
+    {//taking things ready for Robert
+       public Robert(int cash, bool outOfMoney)
         {
             Name = "Robert";
             Cash = cash;

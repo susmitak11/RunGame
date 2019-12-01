@@ -48,10 +48,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             this.RobertCash = new System.Windows.Forms.TextBox();
             this.SamuelCash = new System.Windows.Forms.TextBox();
             this.GeorgeCash = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Jerry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Turtle)).BeginInit();
@@ -111,7 +111,7 @@
             this.RobertSituation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.RobertSituation.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RobertSituation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.RobertSituation.Location = new System.Drawing.Point(12, 478);
+            this.RobertSituation.Location = new System.Drawing.Point(17, 491);
             this.RobertSituation.Name = "RobertSituation";
             this.RobertSituation.Size = new System.Drawing.Size(200, 21);
             this.RobertSituation.TabIndex = 7;
@@ -123,7 +123,7 @@
             this.SamuelSituation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.SamuelSituation.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SamuelSituation.ForeColor = System.Drawing.Color.Green;
-            this.SamuelSituation.Location = new System.Drawing.Point(12, 499);
+            this.SamuelSituation.Location = new System.Drawing.Point(16, 523);
             this.SamuelSituation.Name = "SamuelSituation";
             this.SamuelSituation.Size = new System.Drawing.Size(205, 21);
             this.SamuelSituation.TabIndex = 8;
@@ -135,7 +135,7 @@
             this.GeorgeSituation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.GeorgeSituation.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeorgeSituation.ForeColor = System.Drawing.Color.Red;
-            this.GeorgeSituation.Location = new System.Drawing.Point(16, 520);
+            this.GeorgeSituation.Location = new System.Drawing.Point(16, 555);
             this.GeorgeSituation.Name = "GeorgeSituation";
             this.GeorgeSituation.Size = new System.Drawing.Size(201, 21);
             this.GeorgeSituation.TabIndex = 9;
@@ -283,15 +283,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(109, 439);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Cash";
-            // 
             // RobertCash
             // 
             this.RobertCash.Enabled = false;
@@ -316,6 +307,17 @@
             this.GeorgeCash.Size = new System.Drawing.Size(100, 20);
             this.GeorgeCash.TabIndex = 23;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(361, 464);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 18);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Amount Remained";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,10 +326,10 @@
             this.BackgroundImage = global::HorseRace.Resource1.RaceTrack;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(929, 591);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.GeorgeCash);
             this.Controls.Add(this.SamuelCash);
             this.Controls.Add(this.RobertCash);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BetBtn);
@@ -380,10 +382,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox RobertCash;
         private System.Windows.Forms.TextBox SamuelCash;
         private System.Windows.Forms.TextBox GeorgeCash;
+        private System.Windows.Forms.Label label4;
     }
 }
 
